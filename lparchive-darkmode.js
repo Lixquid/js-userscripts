@@ -4,6 +4,7 @@
 // @version      0.1
 // @author       Lixquid
 // @description  Forces a dark mode for the LP Archive.
+// @license      MIT
 // @supportURL   https://github.com/Lixquid/js-monkey-userscripts/issues
 // @icon         https://lparchive.org/favicon.ico
 // @match        https://lparchive.org/*
