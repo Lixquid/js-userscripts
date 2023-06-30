@@ -16,11 +16,12 @@
     "use strict";
 
     const id = String(Math.random());
-    GM.setValue("AUTOPLAY_ID", id);
+    GM_setValue("AUTOPLAY_ID", id);
 
     setInterval(() => {
-        if (GM.getValue("AUTOPLAY_ID") !== id) {
+        if (GM_getValue("AUTOPLAY_ID") !== id) {
             close();
+            return;
         }
         const e = document.querySelector("div.play-button:nth-child(2)");
         if (e.style.display !== "none") {
