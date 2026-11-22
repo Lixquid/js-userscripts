@@ -1,0 +1,83 @@
+name: Verify Userscripts
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    name: Verify all scripts
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Verify scripts
+        run: |
+          set -euo pipefail
+
+          scripts=(*.js)
+          if [ ! -e "${scripts[0]}" ]; then
+            echo "No scripts found."
+            exit 0
+          fi
+
+          status=0
+
+          for script in "${scripts[@]}"; do
+            echo "::group::Verifying ${script}"
+
+            # Syntax check with Node.
+            if ! node --check "$script"; then
+              echo "::error file=${script}::Syntax check failed."
+              status=1
+            fi
+
+            # Validate userscript metadata block.
+            if ! node -e '
+              const fs = require("fs");
+              const file = process.argv[1];
+              const source = fs.readFileSync(file, "utf8");
+              const fail = (msg) => {
+                console.error(msg);
+                process.exit(1);
+              };
+              if (!source.startsWith("// ==UserScript==")) {
+                fail(`${file}: missing "// ==UserScript==" header at start of file`);
+              }
+              const end = source.indexOf("// ==/UserScript==");
+              if (end === -1) {
+                fail(`${file}: missing closing "// ==/UserScript=="`);
+              }
+              const lines = source
+                .slice(source.indexOf("// ==UserScript=="), end)
+                .split("\n")
+                .map((line) => line.trim())
+                .filter((line) => line.startsWith("// @"));
+              const keys = new Set(
+                lines.map((line) => line.match(/^\/\/ @(\S+)/)?.[1]).filter(Boolean),
+              );
+              for (const key of ["name", "namespace", "version", "description", "match"]) {
+                if (!keys.has(key)) {
+                  fail(`${file}: missing required metadata key "@${key}"`);
+                }
+              }
+              for (const line of lines) {
+                if (!/^\/\/ @\S+\s+\S/.test(line)) {
+                  fail(`${file}: metadata key has no value: "${line}"`);
+                }
+              }
+            ' "$script"; then
+              status=1
+            fi
+
+            echo "::endgroup::"
+          done
+
+          exit "$status"
