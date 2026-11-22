@@ -49,6 +49,22 @@ Can hide or show the following:
 </details>
 
 <details>
+<summary><strong>GitHub Custom Palette</strong></summary>
+
+Adds a quick-switch palette to [GitHub](https://github.com/), opened with
+<kbd>Ctrl</kbd>+<kbd>K</kbd> (or <kbd>Cmd</kbd>+<kbd>K</kbd>), for jumping
+directly to one of your own repositories.
+
+[Source](./github-custompalette.js)
+
+The palette lists all of your repositories (fetched from your repositories
+tab and cached for 24 hours), supports type-ahead filtering, and can be
+navigated with the arrow keys. The cache is automatically invalidated when a
+new repository is created.
+
+</details>
+
+<details>
 <summary><strong>YouTube Music Auto Skip</strong></summary>
 
 Automatically skips songs on YouTube Music depending on user-defined rules.
