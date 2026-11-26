@@ -25,6 +25,7 @@
     let input;
     let results;
     let errorBox;
+    let spinner;
     let refreshPromise;
 
     // --------------------------------------------------
@@ -112,9 +113,7 @@
             );
 
             const nextHref = next?.getAttribute("href");
-            url = nextHref
-                ? new URL(nextHref, location.origin).href
-                : null;
+            url = nextHref ? new URL(nextHref, location.origin).href : null;
         }
 
         return [...found.values()].sort((a, b) =>
@@ -123,65 +122,68 @@
     }
 
     async function refreshRepositories(force = false) {
-        if (refreshPromise) {
-            return refreshPromise;
-        }
-
-        refreshPromise = (async () => {
-            const cached = await GM_getValue(CACHE_KEY, null);
-            const now = Date.now();
-
-            if (!force && cached?.repositories) {
-                if (now - cached.timestamp < CACHE_TTL) {
-                    repositories = cached.repositories;
-                    return repositories;
-                }
-
-                // Cache is stale. If a refresh attempt failed recently,
-                // keep serving the stale cache instead of retrying the
-                // scrape on every palette open.
-                if (now - (cached.lastAttempt ?? 0) < FAIL_TTL) {
-                    repositories = cached.repositories;
-                    return repositories;
-                }
-            }
-
-            try {
-                const fresh = await fetchRepositories();
-
-                await GM_setValue(CACHE_KEY, {
-                    timestamp: now,
-                    repositories: fresh,
-                });
-
-                repositories = fresh;
-                return repositories;
-            } catch (error) {
-                console.error(
-                    "[Repo Palette] Repository refresh failed:",
-                    error,
-                );
-
-                // Record the failed attempt so we back off instead of
-                // retrying on every palette open.
-                if (cached) {
-                    cached.lastAttempt = now;
-                    await GM_setValue(CACHE_KEY, cached);
-                }
-
-                if (cached?.repositories) {
-                    repositories = cached.repositories;
-                    return repositories;
-                }
-
-                throw error;
-            }
-        })();
+        showSpinner();
 
         try {
+            if (refreshPromise) {
+                return refreshPromise;
+            }
+
+            refreshPromise = (async () => {
+                const cached = await GM_getValue(CACHE_KEY, null);
+                const now = Date.now();
+
+                if (!force && cached?.repositories) {
+                    if (now - cached.timestamp < CACHE_TTL) {
+                        repositories = cached.repositories;
+                        return repositories;
+                    }
+
+                    // Cache is stale. If a refresh attempt failed recently,
+                    // keep serving the stale cache instead of retrying the
+                    // scrape on every palette open.
+                    if (now - (cached.lastAttempt ?? 0) < FAIL_TTL) {
+                        repositories = cached.repositories;
+                        return repositories;
+                    }
+                }
+
+                try {
+                    const fresh = await fetchRepositories();
+
+                    await GM_setValue(CACHE_KEY, {
+                        timestamp: now,
+                        repositories: fresh,
+                    });
+
+                    repositories = fresh;
+                    return repositories;
+                } catch (error) {
+                    console.error(
+                        "[Repo Palette] Repository refresh failed:",
+                        error,
+                    );
+
+                    // Record the failed attempt so we back off instead of
+                    // retrying on every palette open.
+                    if (cached) {
+                        cached.lastAttempt = now;
+                        await GM_setValue(CACHE_KEY, cached);
+                    }
+
+                    if (cached?.repositories) {
+                        repositories = cached.repositories;
+                        return repositories;
+                    }
+
+                    throw error;
+                }
+            })();
+
             return await refreshPromise;
         } finally {
             refreshPromise = null;
+            hideSpinner();
         }
     }
 
@@ -253,6 +255,37 @@
                 padding: 6px;
             }
 
+            #repo-palette-spinner {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                padding: 12px;
+                font-size: 12px;
+                opacity: .65;
+                border-top: 1px solid
+                    var(--borderColor-default, #d1d9e0);
+            }
+
+            #repo-palette-spinner[hidden] {
+                display: none;
+            }
+
+            .repo-palette-spinner-icon {
+                width: 14px;
+                height: 14px;
+                box-sizing: border-box;
+                border: 2px solid
+                    var(--borderColor-default, #d1d9e0);
+                border-top-color: var(--fgColor-accent, #0969da);
+                border-radius: 50%;
+                animation: repo-palette-spin .8s linear infinite;
+            }
+
+            @keyframes repo-palette-spin {
+                to { transform: rotate(360deg); }
+            }
+
             #repo-palette-error {
                 padding: 8px 14px;
                 font-size: 12px;
@@ -312,6 +345,10 @@
                     spellcheck="false"
                 />
                 <div id="repo-palette-results"></div>
+                <div id="repo-palette-spinner" hidden>
+                    <span class="repo-palette-spinner-icon"></span>
+                    Loading repositories…
+                </div>
                 <div id="repo-palette-error" hidden></div>
                 <div class="repo-palette-footer">
                     ↑ ↓ Navigate &nbsp; ↵ Open &nbsp; Esc Close
@@ -325,6 +362,7 @@
         input = palette.querySelector("input");
         results = palette.querySelector("#repo-palette-results");
         errorBox = palette.querySelector("#repo-palette-error");
+        spinner = palette.querySelector("#repo-palette-spinner");
 
         input.addEventListener("input", renderResults);
 
@@ -442,6 +480,14 @@
         if (repo) {
             location.href = repo.url;
         }
+    }
+
+    function showSpinner() {
+        spinner.hidden = false;
+    }
+
+    function hideSpinner() {
+        spinner.hidden = true;
     }
 
     function showError(message) {
