@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Custom Palette
 // @namespace    https://lixquid.com/
-// @version      0.2
+// @version      0.2.1
 // @author       Lixquid
 // @description  Quick-switch between your own GitHub repositories.
 // @match        https://github.com/*
@@ -53,7 +53,13 @@
         }
 
         const found = new Map();
-        let url = `/${encodeURIComponent(login)}?tab=repositories&type=owner`;
+        // Some userscript managers run fetch() in a sandbox where
+        // relative URLs are not resolved against the page origin, so
+        // always use fully-qualified URLs.
+        let url = new URL(
+            `/${encodeURIComponent(login)}?tab=repositories&type=owner`,
+            location.origin,
+        ).href;
         const visited = new Set();
 
         while (url && !visited.has(url)) {
@@ -105,7 +111,10 @@
                 '.paginate-container a[rel="next"], ' + 'a[rel="next"]',
             );
 
-            url = next?.getAttribute("href") || null;
+            const nextHref = next?.getAttribute("href");
+            url = nextHref
+                ? new URL(nextHref, location.origin).href
+                : null;
         }
 
         return [...found.values()].sort((a, b) =>
