@@ -4,11 +4,14 @@
 // @version      0.2.1
 // @author       Lixquid
 // @description  Quick-switch between your own GitHub repositories.
+// @supportURL   https://github.com/Lixquid/js-userscripts/issues
 // @match        https://github.com/*
 // @grant        GM_getValue
 // @grant        GM_setValue
 // @grant        GM_deleteValue
 // @run-at       document-idle
+// @updateURL    https://raw.githubusercontent.com/Lixquid/js-userscripts/master/github-custompalette.js
+// @downloadURL  https://raw.githubusercontent.com/Lixquid/js-userscripts/master/github-custompalette.js
 // ==/UserScript==
 
 (() => {

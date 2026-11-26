@@ -5,7 +5,9 @@
 // @author       Lixquid
 // @description  Automatically skips songs on YouTube Music depending on user-defined rules.
 // @license      MIT
-// @supportURL   https://github.com/Lixquid/js-monkey-userscripts/issues
+// @supportURL   https://github.com/Lixquid/js-userscripts/issues
+// @updateURL    https://raw.githubusercontent.com/Lixquid/js-userscripts/master/youtubemusic-autoskip.js
+// @downloadURL  https://raw.githubusercontent.com/Lixquid/js-userscripts/master/youtubemusic-autoskip.js
 // @icon         https://www.google.com/s2/favicons?domain=music.youtube.com
 // @match        https://music.youtube.com/*
 // @grant        none
