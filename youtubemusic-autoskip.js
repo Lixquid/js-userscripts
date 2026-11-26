@@ -8,7 +8,7 @@
 // @supportURL   https://github.com/Lixquid/js-userscripts/issues
 // @updateURL    https://raw.githubusercontent.com/Lixquid/js-userscripts/master/youtubemusic-autoskip.js
 // @downloadURL  https://raw.githubusercontent.com/Lixquid/js-userscripts/master/youtubemusic-autoskip.js
-// @icon         https://www.google.com/s2/favicons?domain=music.youtube.com
+// @icon         https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://music.youtube.com&size=16
 // @match        https://music.youtube.com/*
 // @grant        none
 // ==/UserScript==

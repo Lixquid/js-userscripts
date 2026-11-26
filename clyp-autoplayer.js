@@ -8,7 +8,7 @@
 // @supportURL   https://github.com/Lixquid/js-userscripts/issues
 // @updateURL    https://raw.githubusercontent.com/Lixquid/js-userscripts/master/clyp-autoplayer.js
 // @downloadURL  https://raw.githubusercontent.com/Lixquid/js-userscripts/master/clyp-autoplayer.js
-// @icon         https://www.google.com/s2/favicons?domain=clyp.it
+// @icon         https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://clyp.it&size=16
 // @match        https://clyp.it/*
 // @grant        GM_setValue
 // @grant        GM_getValue
