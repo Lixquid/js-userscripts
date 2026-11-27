@@ -7,7 +7,6 @@ in your browser to modify web pages to your liking.
 
 1. Install a userscript manager extension for your browser:
     - [Violentmonkey](https://violentmonkey.github.io/get-it/)
-    - [Tampermonkey](https://www.tampermonkey.net/)
 2. Navigate to the source of the userscript you want to install.
 3. Copy the entire source code.
 4. Open the userscript manager extension and create a new userscript.
@@ -16,11 +15,16 @@ in your browser to modify web pages to your liking.
 
 ## Userscripts
 
+> [!IMPORTANT] Some scripts require customization; you can open the settings for
+> scripts that support it by clicking the "Settings" button under the script in
+> your Userscript extension.
+> ![Userscript Settings Button](./misc/readme_settings.png)
+
 <details>
 <summary><strong>Clyp Autoplayer</strong></summary>
 
-Automatically plays audio on [Clyp](https://clyp.it/), and ensures that only
-one audio player is playing at a time.
+Automatically plays audio on [Clyp](https://clyp.it/), and ensures that only one
+audio player is playing at a time.
 
 [Source](./scripts/clyp-autoplayer.js)
 
@@ -34,17 +38,17 @@ previous tabs when a new audio player is started.
 <summary><strong>Discord Hide Buttons</strong></summary>
 
 Hides unwanted buttons in Discord's UI, such as the GIF picker, the Send Gift
-button, the Server Boost button, and others.
+button, the Server Boost button, and others. **Customizable Settings**
 
-[Source](./scripts/discord-hidebuttons.js) **NOTE: Requires Customization**
+[Source](./scripts/discord-hidebuttons.js)
 
 Can hide or show the following:
 
--   Send a gift button in chatbox
--   GIF picker button in chatbox (Can still send GIFs via emoji picker)
--   Sticker picker button in chatbox (Can still send stickers via emoji picker)
--   Emoji picker button in chatbox
--   Super Reactions on message and context menus
+- Send a gift button in chatbox
+- GIF picker button in chatbox (Can still send GIFs via emoji picker)
+- Sticker picker button in chatbox (Can still send stickers via emoji picker)
+- Emoji picker button in chatbox
+- App Launcher button in chatbox
 
 </details>
 
@@ -57,10 +61,10 @@ directly to one of your own repositories.
 
 [Source](./scripts/github-custompalette.js)
 
-The palette lists all of your repositories (fetched from your repositories
-tab and cached for 24 hours), supports type-ahead filtering, and can be
-navigated with the arrow keys. The cache is automatically invalidated when a
-new repository is created.
+The palette lists all of your repositories (fetched from your repositories tab
+and cached for 24 hours), supports type-ahead filtering, and can be navigated
+with the arrow keys. The cache is automatically invalidated when a new
+repository is created.
 
 </details>
 
@@ -68,8 +72,9 @@ new repository is created.
 <summary><strong>YouTube Music Auto Skip</strong></summary>
 
 Automatically skips songs on YouTube Music depending on user-defined rules.
+**Customizable Settings**
 
-[Source](./scripts/youtubemusic-autoskip.js) **NOTE: Requires Customization**
+[Source](./scripts/youtubemusic-autoskip.js)
 
 Can automatically skip songs based on title or artist.
 
