@@ -15,9 +15,12 @@ in your browser to modify web pages to your liking.
 
 ## Userscripts
 
-> [!IMPORTANT] Some scripts require customization; you can open the settings for
-> scripts that support it by clicking the "Settings" button under the script in
-> your Userscript extension.
+> [!IMPORTANT]
+>
+> Some scripts require customization; you can open the settings for scripts that
+> support it by clicking the "Settings" button under the script in your
+> Userscript extension.
+>
 > ![Userscript Settings Button](./misc/readme_settings.png)
 
 <details>
