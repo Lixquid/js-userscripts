@@ -10,8 +10,8 @@
 // @grant        GM_setValue
 // @grant        GM_deleteValue
 // @run-at       document-idle
-// @updateURL    https://raw.githubusercontent.com/Lixquid/js-userscripts/master/github-custompalette.js
-// @downloadURL  https://raw.githubusercontent.com/Lixquid/js-userscripts/master/github-custompalette.js
+// @updateURL    https://raw.githubusercontent.com/Lixquid/js-userscripts/master/scripts/github-custompalette.js
+// @downloadURL  https://raw.githubusercontent.com/Lixquid/js-userscripts/master/scripts/github-custompalette.js
 // @icon         https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://github.com&size=16
 // ==/UserScript==
 

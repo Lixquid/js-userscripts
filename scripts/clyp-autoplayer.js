@@ -6,8 +6,8 @@
 // @description  Automatically plays Clyp audio files as they load, and ensures only one Clyp window is kept open at a time.
 // @license      MIT
 // @supportURL   https://github.com/Lixquid/js-userscripts/issues
-// @updateURL    https://raw.githubusercontent.com/Lixquid/js-userscripts/master/clyp-autoplayer.js
-// @downloadURL  https://raw.githubusercontent.com/Lixquid/js-userscripts/master/clyp-autoplayer.js
+// @updateURL    https://raw.githubusercontent.com/Lixquid/js-userscripts/master/scripts/clyp-autoplayer.js
+// @downloadURL  https://raw.githubusercontent.com/Lixquid/js-userscripts/master/scripts/clyp-autoplayer.js
 // @icon         https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://clyp.it&size=16
 // @match        https://clyp.it/*
 // @grant        GM_setValue

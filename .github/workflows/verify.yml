@@ -22,7 +22,7 @@ jobs:
         run: |
           set -euo pipefail
 
-          scripts=(*.js)
+          scripts=(scripts/*.js)
           if [ ! -e "${scripts[0]}" ]; then
             echo "No scripts found."
             exit 0

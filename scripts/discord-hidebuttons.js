@@ -6,8 +6,8 @@
 // @description  Hides unwanted buttons in Discord's UI, such as the GIF picker, the Send Gift button, the Server Boost button, and others. Configurable via a Settings menu entry.
 // @license      MIT
 // @supportURL   https://github.com/Lixquid/js-userscripts/issues
-// @updateURL    https://raw.githubusercontent.com/Lixquid/js-userscripts/master/discord-hidebuttons.js
-// @downloadURL  https://raw.githubusercontent.com/Lixquid/js-userscripts/master/discord-hidebuttons.js
+// @updateURL    https://raw.githubusercontent.com/Lixquid/js-userscripts/master/scripts/discord-hidebuttons.js
+// @downloadURL  https://raw.githubusercontent.com/Lixquid/js-userscripts/master/scripts/discord-hidebuttons.js
 // @icon         https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://discord.com&size=16
 // @match        https://discord.com/*
 // @grant        GM_registerMenuCommand

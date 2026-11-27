@@ -22,7 +22,7 @@ in your browser to modify web pages to your liking.
 Automatically plays audio on [Clyp](https://clyp.it/), and ensures that only
 one audio player is playing at a time.
 
-[Source](./clyp-autoplayer.js)
+[Source](./scripts/clyp-autoplayer.js)
 
 This script is intended for follow-along stories that provide background music
 via Clyp. It will automatically repeat the audio when it ends, and will close
@@ -36,7 +36,7 @@ previous tabs when a new audio player is started.
 Hides unwanted buttons in Discord's UI, such as the GIF picker, the Send Gift
 button, the Server Boost button, and others.
 
-[Source](./discord-hidebuttons.js) **NOTE: Requires Customization**
+[Source](./scripts/discord-hidebuttons.js) **NOTE: Requires Customization**
 
 Can hide or show the following:
 
@@ -55,7 +55,7 @@ Adds a quick-switch palette to [GitHub](https://github.com/), opened with
 <kbd>Ctrl</kbd>+<kbd>K</kbd> (or <kbd>Cmd</kbd>+<kbd>K</kbd>), for jumping
 directly to one of your own repositories.
 
-[Source](./github-custompalette.js)
+[Source](./scripts/github-custompalette.js)
 
 The palette lists all of your repositories (fetched from your repositories
 tab and cached for 24 hours), supports type-ahead filtering, and can be
@@ -69,7 +69,7 @@ new repository is created.
 
 Automatically skips songs on YouTube Music depending on user-defined rules.
 
-[Source](./youtubemusic-autoskip.js) **NOTE: Requires Customization**
+[Source](./scripts/youtubemusic-autoskip.js) **NOTE: Requires Customization**
 
 Can automatically skip songs based on title or artist.
 
@@ -80,10 +80,10 @@ Can automatically skip songs based on title or artist.
 
 Adds a dark mode to the [LP Archive](https://lparchive.org/).
 
-[Source](./lparchive-darkmode.js)
+[Source](./scripts/lparchive-darkmode.js)
 
 </details>
 
 ## License
 
-Licensed under the [MIT License](./LICENSE).
+Licensed under the [MIT License](./scripts/LICENSE).

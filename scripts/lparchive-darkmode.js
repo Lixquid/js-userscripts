@@ -6,8 +6,8 @@
 // @description  Forces a dark mode for the LP Archive.
 // @license      MIT
 // @supportURL   https://github.com/Lixquid/js-userscripts/issues
-// @updateURL    https://raw.githubusercontent.com/Lixquid/js-userscripts/master/lparchive-darkmode.js
-// @downloadURL  https://raw.githubusercontent.com/Lixquid/js-userscripts/master/lparchive-darkmode.js
+// @updateURL    https://raw.githubusercontent.com/Lixquid/js-userscripts/master/scripts/lparchive-darkmode.js
+// @downloadURL  https://raw.githubusercontent.com/Lixquid/js-userscripts/master/scripts/lparchive-darkmode.js
 // @icon         https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://lparchive.org&size=16
 // @match        https://lparchive.org/*
 // ==/UserScript==
