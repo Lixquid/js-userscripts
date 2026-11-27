@@ -72,6 +72,15 @@ repository is created.
 </details>
 
 <details>
+<summary><strong>LP Archive Dark Mode</strong></summary>
+
+Adds a dark mode to the [LP Archive](https://lparchive.org/).
+
+[Source](./scripts/lparchive-darkmode.js)
+
+</details>
+
+<details>
 <summary><strong>YouTube Music Auto Skip</strong></summary>
 
 Automatically skips songs on YouTube Music depending on user-defined rules.
@@ -80,15 +89,6 @@ Automatically skips songs on YouTube Music depending on user-defined rules.
 [Source](./scripts/youtubemusic-autoskip.js)
 
 Can automatically skip songs based on title or artist.
-
-</details>
-
-<details>
-<summary><strong>LP Archive Dark Mode</strong></summary>
-
-Adds a dark mode to the [LP Archive](https://lparchive.org/).
-
-[Source](./scripts/lparchive-darkmode.js)
 
 </details>
 
