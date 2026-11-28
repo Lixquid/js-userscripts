@@ -24,6 +24,20 @@ in your browser to modify web pages to your liking.
 > ![Userscript Settings Button](./misc/readme_settings.png)
 
 <details>
+<summary><strong>Bluesky Hide Discover and Following Rows After</strong></summary>
+
+Hides the Discover feed and everything after it in the Following feed on
+[Bluesky](https://bsky.app/).
+
+[Source](./scripts/bluesky-hidediscover.js)
+
+When browsing the Following feed, the Discover feed row is hidden, along with
+all rows after it. This is done via a MutationObserver, so it keeps working as
+new content is loaded.
+
+</details>
+
+<details>
 <summary><strong>Clyp Autoplayer</strong></summary>
 
 Automatically plays audio on [Clyp](https://clyp.it/), and ensures that only one
